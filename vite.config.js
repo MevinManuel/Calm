@@ -6,5 +6,9 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'build', // Ensure the output directory is set to 'build'
+    esbuild: {
+      jsxInject: `import React from 'react'`  // Ensures JSX works properly
+    }
   },
 });
+
