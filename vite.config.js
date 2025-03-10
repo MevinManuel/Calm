@@ -5,7 +5,7 @@ export default defineConfig({
   base: '/calm/', // Ensure this matches the repository name
   plugins: [react()],
   build: {
-    outDir: 'dist', // Ensure this matches the deploy script
+    outDir: 'build', // Ensure this matches the deploy script
     esbuild: {
       jsxInject: `import React from 'react'`  // Ensures JSX works properly
     }
