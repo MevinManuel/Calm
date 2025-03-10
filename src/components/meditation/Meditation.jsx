@@ -109,44 +109,45 @@ const Meditation = () => {
 
   return (
     <ComponentWrapper title="Meditations & Stories">
-      <Grid container spacing={3}>
-        {meditationList.map((meditation) => (
-          <Grid item xs={12} sm={6} md={4} key={meditation.id}>
-            <Card sx={{
-              background: 'rgba(255, 255, 255, 0.05)',
-              backdropFilter: 'blur(10px)',
-              transition: 'transform 0.2s',
-              '&:hover': {
-                transform: 'translateY(-5px)',
-              }
-            }}>
-              <CardContent>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-                  <IconButton 
-                    onClick={() => toggleMeditation(meditation.id)}
-                    sx={{ 
-                      bgcolor: playing === meditation.id ? 'primary.main' : 'transparent',
-                      '&:hover': {
-                        bgcolor: playing === meditation.id ? 'primary.dark' : 'rgba(255, 255, 255, 0.08)',
-                      }
-                    }}
-                  >
-                    {playing === meditation.id ? <Pause /> : <PlayArrow />}
-                  </IconButton>
-                  <Box>
-                    <Typography variant="h6" sx={{ color: 'white' }}>
-                      {meditation.name}
-                    </Typography>
-                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                      {meditation.duration}
-                    </Typography>
-                  </Box>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+      <Grid container spacing={3} sx={{ width: '100%', margin: 0 }}>
+  {meditationList.map((meditation) => (
+    <Grid item xs={12} sm={6} md={3} key={meditation.id}> 
+      <Card sx={{
+        background: 'rgba(255, 255, 255, 0.05)',
+        backdropFilter: 'blur(10px)',
+        transition: 'transform 0.2s',
+        '&:hover': {
+          transform: 'translateY(-5px)',
+        }
+      }}>
+        <CardContent>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <IconButton 
+              onClick={() => toggleMeditation(meditation.id)}
+              sx={{ 
+                bgcolor: playing === meditation.id ? 'primary.main' : 'transparent',
+                '&:hover': {
+                  bgcolor: playing === meditation.id ? 'primary.dark' : 'rgba(255, 255, 255, 0.08)',
+                }
+              }}
+            >
+              {playing === meditation.id ? <Pause /> : <PlayArrow />}
+            </IconButton>
+            <Box>
+              <Typography variant="h6" sx={{ color: 'white' }}>
+                {meditation.name}
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                {meditation.duration}
+              </Typography>
+            </Box>
+          </Box>
+        </CardContent>
+      </Card>
+    </Grid>
+  ))}
+</Grid>
+
     </ComponentWrapper>
   );
 };
